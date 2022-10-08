@@ -3,6 +3,8 @@ package br.com.didox;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class App 
 {
@@ -10,7 +12,118 @@ public class App
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        
+        /*
+        Paula tem uma petshop, ela está precisando de um sistema
+        para controlar seus serviços. neste sistema, precisa cadastrar
+        o cliente (Dados básicos) os dados do Pet e o peso do pet,
+        depois o sistema deverá calcular o valor do banho, pelo peso
+
+        qual será este calculo:
+        - Para macho:
+            (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 / 100
+        - Para femêa
+            (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 / 100
+
+        Feito o calculo o sistema deverá mostrar um relatório com os dados do
+        pedido e o valor total a pagar.
+
+        Coloque uma usabilidade agradável
+        */
+
+        // == algoritimo do professor
+        /*
+        var mensagem = "[ Petshop da Paula ]\nVamos começar?";
+        JOptionPane.showMessageDialog(null, mensagem);
+
+        String nome = JOptionPane.showInputDialog("Digite o nome do cliente");
+        String telefone = JOptionPane.showInputDialog("Digite o telefone do(s) " + nome);
+        String nomeDoPet = JOptionPane.showInputDialog("Digite o nome do Pet");
+        double pesoDoPet = Double.parseDouble(JOptionPane.showInputDialog("Digite o peso do(a) " + nomeDoPet));
+        int sexoPet = Integer.parseInt(JOptionPane.showInputDialog("O(a) " + nomeDoPet + " é macho ou fêmea ?\n1 - Macho\n2 - Fêmea"));
+        double valorPorPeso = Double.parseDouble(JOptionPane.showInputDialog("Digite o R$ valor por peso"));
+
+        // String nome = "Fabiana";
+        // String telefone = "(11) 99999-9999";
+        // String nomeDoPet = "Maikey";
+        // double pesoDoPet = 20.5;
+        // int sexoPet = 1;
+        // double valorPorPeso = 2.6;
+
+        double resultado = 0;
+        if(sexoPet == 2){
+            resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 / 100;
+        }
+        else{
+            resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 / 100;
+        }
+       
+        String relatorio = "Nome do cliente: " + nome + "\n";
+        relatorio += "Telefone do(a) " + nome + ": " + telefone + "\n";
+        relatorio += "Pet do(a) " + nome + ": " + nomeDoPet + "\n";
+        relatorio += "Peso do(a) " + nomeDoPet + ": " + pesoDoPet + "\n";
+
+        Locale localeBR = new Locale( "pt", "BR" );  
+        NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);  
+        String valorFormatado = dinheiroBR.format(resultado);
+
+        relatorio += "Valor total do serviço: " + valorFormatado;
+
+        //System.out.println(relatorio);
+        JOptionPane.showMessageDialog(null, relatorio);
+        */
+
+
+
+
+        // Walter
+        Scanner ler = new Scanner(System.in);
+    	/*
+        * Autor: Walter Paulo
+        * Date: 08/10/2022
+        * Exercise: 1 do dia 6 - Desafio 21 dias em Java 
+        */
+	    System.out.println("===============[ PetAni ]===============");
+	    System.out.println("Olá Paula, bom dia");
+	    System.out.println("===============[ Cadastro Cliente ]===============");
+	    System.err.println("Digite o nome");
+	    var nomeDoCliente = ler.next();
+	    System.out.println("Digite o telefone");
+	    var telefoneCliente = ler.next();
+	    System.out.println("===============[ Cadastro do Pet ]===============");
+	    System.err.println("Digite o nome");
+	    var nomeDoPet = ler.next();
+	    System.err.println("Digite o sexo: M => macho / F => Fêmea");
+	    var sexoDoPet = ler.next();
+	    System.err.println("Digite o peso:");
+	    var pesoDoPet = ler.nextDouble();
+	    
+	    System.out.println("===============[ Cadastro do Preço ]===============");
+	    System.err.println("Digite o valor por peso");
+	    var valorPorPeso = ler.nextDouble();
+	    var valorTotal = 0.0;
+	    if(sexoDoPet.equals("M")) {
+	    	valorTotal =  (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 / 100;
+	    }
+	    else {
+	    	valorTotal =  (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 / 100;
+	    }
+	    
+        DecimalFormat moedaBr = new DecimalFormat( "#,###,###,##0.00" );
+
+	    System.out.println("============[ Relatório ]=======================");
+	    System.out.println("Nome do cliente: "+ nomeDoCliente);
+	    System.out.println("Telefone: "+ telefoneCliente);
+            System.out.println("\n-----[ Pet ]--------");
+	    System.out.println("Nome do Pet: "+nomeDoPet);
+	    System.out.println("Sexo: "+sexoDoPet);
+	    System.out.println("Peso: "+pesoDoPet);
+	    System.out.println("\n---------[ Pagamento ]--------");
+	    System.err.println("Valor Total R$ "+ moedaBr.format(valorTotal) );
+
+
+
+
+
         // === tipos primitivos mais utilizados
         // int inteiro = 5;
         // double moeda = 5.99;
@@ -116,38 +229,37 @@ public class App
         // resultado = valorTotal2 > 100 ? "Foiii verdade" : "";
         // System.out.println(resultado);
 
-        System.out.println("==============[ Calculo produto/cliente ]===================");
-        System.out.println("Olá João seja muito bem vindo, vamos começar?");
+        // System.out.println("==============[ Calculo produto/cliente ]===================");
+        // System.out.println("Olá João seja muito bem vindo, vamos começar?");
         
-        System.out.println("Digite o nome do seu cliente: ");
-        var nome = reader.readLine();
+        // System.out.println("Digite o nome do seu cliente: ");
+        // var nome = reader.readLine();
 
-        System.out.println("Digite o endereço do seu cliente: ");
-        var endereco = reader.readLine();
+        // System.out.println("Digite o endereço do seu cliente: ");
+        // var endereco = reader.readLine();
 
-        System.out.println("Digite o nome do produto: ");
-        var produto = reader.readLine();
+        // System.out.println("Digite o nome do produto: ");
+        // var produto = reader.readLine();
 
-        System.out.printf("Digite o valor do produto (%s): ", produto);
-        var valor = Double.parseDouble(reader.readLine());
+        // System.out.printf("Digite o valor do produto (%s): ", produto);
+        // var valor = Double.parseDouble(reader.readLine());
 
-        System.out.printf("Digite a quantidade do produto (%s): ", produto);
-        var quantidade = Integer.parseInt(reader.readLine());
+        // System.out.printf("Digite a quantidade do produto (%s): ", produto);
+        // var quantidade = Integer.parseInt(reader.readLine());
          
-        var valorTotal = valor * quantidade;
+        // var valorTotal = valor * quantidade;
 
-        System.out.println("-----------------------------");
-        System.out.printf("Cliente: %s \n", nome);
-        System.out.printf("Endereço de entrega: %s \n", endereco);
-        System.out.printf("Comprou o material: %s no valor de R$ %s \n", produto, valor);
-        System.out.printf("O valor total da compra deu: R$ %.2f \n", valorTotal);
+        // System.out.println("-----------------------------");
+        // System.out.printf("Cliente: %s \n", nome);
+        // System.out.printf("Endereço de entrega: %s \n", endereco);
+        // System.out.printf("Comprou o material: %s no valor de R$ %s \n", produto, valor);
+        // System.out.printf("O valor total da compra deu: R$ %.2f \n", valorTotal);
 
-        if(valorTotal > 100){
-            System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
-        }
+        // if(valorTotal > 100){
+        //     System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
+        // }
 
-        System.out.println("-----------------------------");
-
+        // System.out.println("-----------------------------");
 
         // System.out.printf("Digite um valor \n");
         // var valorString = reader.readLine();
