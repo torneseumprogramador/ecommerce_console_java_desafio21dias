@@ -11,7 +11,196 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	    
+	    
+	/*
+        
+        Denilson é um bombeiro e que precisa apagar as chamas de um prédio
+        crie um programa utilizando os conceitos de loop para
+        que o prédio em chama possa ser molhado com a magueira do bombeiro Denilson
+        até que as chamas estejam apagadas.
 
+        variável chama será capturada pelo usuário do programa. Ex:
+        digite o tamanho em metros da chama: 200
+
+        Digite os litros total do caminhão de bombeiros: 50
+
+        para cada 5 litros de agua eu apago 1 metro de chama.
+
+        Faça um programa mostrando o histórico deste atendimento.
+
+        Exemplo de histórico:
+
+        100 metros de chama
+        eu coloquei 50 litros de agua
+
+        quantidade_de_agua_por_metro = 100 / 5
+        quantidade_de_litros_que_tenho = 50 / 5
+
+        se a capacidade de agua for menor, Denilson não vai conseguir apagar o foco e terá que chamar reforços
+        senão, mostrar o histórico assim:
+        ===========
+        Apagando 5 metros de fogo fase 1
+        Apagando 5 metros de fogo fase 2
+        Apagando 5 metros de fogo fase 3
+        Apagando 5 metros de fogo fase 4
+        
+        Fogo apagado com sucesso.
+        Sobraram X litros de agua
+        */
+
+
+        // == Loop syntaxe
+        /* 
+        System.out.println("Digite 1 para entrar no loop");
+        String valorDigitado = reader.readLine();
+        while (valorDigitado.equals("1")) {
+            System.out.println("entrei");
+            System.out.println("Digite algo diferente de 1 para sair do loop");
+            valorDigitado = reader.readLine();
+        }
+
+        while (true) { // enquanto
+            System.out.println("entrei");
+            System.out.println("Digite algo diferente de 1 para sair do loop");
+            String sair = reader.readLine();
+            if(!sair.equals("1")) break;
+        }
+
+        while (true) { // enquanto
+            System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
+            String opcao = reader.readLine();
+
+            if(opcao.equals("pular")) continue;
+
+            System.out.println("============ [ " + opcao + " ] ============");
+
+            if(opcao.equals("sair")) break;
+        }
+
+        String opcao = "sair";
+        do{
+            System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
+            opcao = reader.readLine();
+            System.out.println("============ [ " + opcao + " ] ============");
+        }while(!opcao.equals("sair"));
+
+        */
+
+
+        // == for sintaxe
+        // for (int i = 0; i < 5; i++) { // para i iniciando com 0 até menor que 5
+        //     System.out.println("o numero é: ");
+        //     System.out.println(i);
+        // }
+
+	    
+	    
+	/*
+	/*
+        O Governo so Brasil está precisando construir uma ponte
+        que vai possibilitar a passagem de caminhões de um estado a outro.
+        Está ponte, vai ajudar no transporte de alimento, ajudando na 
+        alimentação de diversos brasileiros.
+
+        Faça um programa que ajude a calcular o valor total desta ponte.
+        Para isso vc irá precisar, perguntar alguns itens:
+        - Valor por metro quadrado (do serviço)
+        - Total de metros da ponte
+        - Mostrar as opções de ferro da fundação da ponte, para que o engenheiro
+          possa escolher, exemplo: (Ferro fundido, Ferro com aço, Ferro Normal)
+        - O valor do ferro varia de acordo com a opção escolhida
+        - no final do relatório mostre o valor total contruido
+        - deste valor total contruído, mostrar também que 30% foi adquirido
+          com o valor de imposto arrecadado sobre a população local.
+
+        Objetivo do exercio:
+        - utilizar if
+        - utilizar switch
+        */
+	    
+	// ==== Exercício Walter
+	/*
+    	 * Autor: Walter Paulo
+    	 * Date: 08/10/2022
+    	 * Exercise: 2 do dia 6 - Desafio 21 dias em Java 
+    	 */
+	 
+	Scanner ler = new Scanner(System.in);
+	    
+    	
+	    	
+	    	
+    	double taxaFerroFundido = 1.2;
+    	double taxaFerroAcao = 1.3;
+    	double taxaFerroNormal = 0.0;
+    	double taxaImposto = 30.0;
+    	
+    	double valorTotal = 0.0;
+	    
+    	String msgInicial = "[ Infraestrutua - Governo Federal ]\n\n";
+    	String menu = msgInicial;
+    	
+    	menu += "Escolha uma opção:\n ( 1 ) = Orçamento de Ponte;\n ( 0 ) = Sair;\n\n";
+    	var menuTipoFerro = "[ Ponte - Governo Federal ]\n\nEscolha uma opção:\n"
+    			+ "( 1 ) = Ferro normal ("+taxaFerroNormal+"%);\n"
+    			+ "( 2 ) = Ferro com Aço ("+taxaFerroAcao+"%);\n"
+    			+ "( 3 ) = Ferro Fundido ("+taxaFerroFundido+"%);\n\n";
+    	var msgSair = "Um Governo mais forte para todos!";
+    	
+        var opcao = JOptionPane.showInputDialog(null, menu);
+        
+        if(Integer.parseInt(opcao) == 1) {
+        	String relatorio = msgInicial;
+        	relatorio += "________________| Relatório |________________\n";
+        	
+        	var opcaoTipoFerro = JOptionPane.showInputDialog(menuTipoFerro);
+        	
+        	var valorValorM2 = JOptionPane.showInputDialog("Digite o valor do metro quadrado:");
+        	var comprimentoPonte = JOptionPane.showInputDialog("Digite a metragem da ponte:");
+        	
+        	double m2valor = Double.parseDouble(valorValorM2);
+        	double comprimento = Double.parseDouble(comprimentoPonte);
+        	DecimalFormat moedaBr = new DecimalFormat( "#,###,###,##0.00" );
+        	
+        	relatorio += "\nDescrição Técnica\n"
+        			+ "Departamento: Infraestrutura\n"
+        			+ "Obra: Ponte\n"
+        			+ "Metragem: "+comprimentoPonte+" metro(s)\n"
+					+ "Valor por metro: R$ "+moedaBr.format(m2valor)+"\n";
+        	
+        	String tipoDePonte = "Ferro Fundido";
+        	
+        	switch(opcaoTipoFerro) {
+        	  case "1":
+        		tipoDePonte = "Normal";
+        	    valorTotal = ( m2valor * comprimento) * (taxaFerroNormal > 0? taxaFerroNormal : 1.0);
+        	    break;
+        	  case "2":
+        		  tipoDePonte = "Ferro com Aço";
+        		  valorTotal = ( m2valor * comprimento) * (taxaFerroAcao > 0? taxaFerroAcao : 1.0);
+        	    break;
+        	  default:
+        		  valorTotal = ( m2valor * comprimento) * (taxaFerroFundido > 0? taxaFerroFundido : 1.0);
+        	}
+        	
+        	relatorio += "Tipo: "+tipoDePonte+"\n"
+        			+ "Imposto da população em porcentagem: "+taxaImposto+"%\n"
+        			+ "Imposto da população em moeda: R$ "+ moedaBr.format((valorTotal * taxaImposto) / 100)
+        			+ "\nValor Total: R$ "+moedaBr.format(valorTotal);
+        	
+        	JOptionPane.showMessageDialog(null, "Valor:" + relatorio);
+        	
+        	
+        }else {
+        	JOptionPane.showMessageDialog(null, msgSair);
+        }
+	  
+	    
+
+	    
+	    
+	    
         /*
         Paula tem uma petshop, ela está precisando de um sistema
         para controlar seus serviços. neste sistema, precisa cadastrar
@@ -75,13 +264,14 @@ public class App
 
 
 
-        // Walter
-        Scanner ler = new Scanner(System.in);
+        // Walter	
+	Scanner ler = new Scanner(System.in);
     	/*
         * Autor: Walter Paulo
         * Date: 08/10/2022
         * Exercise: 1 do dia 6 - Desafio 21 dias em Java 
         */
+        /*
 	    System.out.println("===============[ PetAni ]===============");
 	    System.out.println("Olá Paula, bom dia");
 	    System.out.println("===============[ Cadastro Cliente ]===============");
@@ -119,10 +309,12 @@ public class App
 	    System.out.println("Peso: "+pesoDoPet);
 	    System.out.println("\n---------[ Pagamento ]--------");
 	    System.err.println("Valor Total R$ "+ moedaBr.format(valorTotal) );
+	*/
 
 
 
-
+	    
+	    
 
         // === tipos primitivos mais utilizados
         // int inteiro = 5;
