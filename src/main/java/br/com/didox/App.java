@@ -3,35 +3,80 @@ package br.com.didox;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class App {
+   private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     
     public static void main(String[] args) throws IOException {
-        
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        
+        exemploSwingForm();
+        // passandoParametrosDoConsole(args);
+        // arraySyntaxe();
+        // exercicioSomaArray();
+        // exercicioListaArray();
+        // utilizandoArray();
+		// utilizandoMatrix();
+        // exercicioAlunosEscola();
+        // exercicioTabuadaMultiplicador();
+        // exercicioTabuada();
+        // exercicioBombeiro();
+        // whileDoWhileSyntaxe();
+        // loopFor();
+        // exercicioGovernoPonte();
+        // exercicioPaulaPetshop();
+        // somaTiposPrimitivos();
+        // formatacaoContatenacao();
+        // formatarPadraoAmericano();
+        // formatarMoedaBr();
+        // operadoresLogicos();
+        // compareDates("2017-01-13 00:00:00", "2017-01-14 00:00:00");
+        // exemploCondicionaisTernario();
+        // exercicioJoaoCondicional();
+        // formatarMoeda();
+        // exercicioJoaoOperacao();
+        // capturaCalculaNumero();
+        // capturaNome();
+        // soma();
+    }
+
+    private static void passandoParametrosDoConsole(String[] parametros) {
         // ==== passando parametros no app console
-        /* 
-        System.out.println("===================");
-        System.out.println(args[0]);
-        System.out.println(args[1]);
-        System.out.println("===================");
-        */
+        if(parametros.length > 0){
+            for (String parametro : parametros) {
+                System.out.println("Parametro: " + parametro);
+            }
+        }
+        else{
+            System.out.println("Nenhum parametro passado");
+        }
+    }
 
-
+    private static void arraySyntaxe() throws IOException {
         // === ArrayList não tem limites para adicionar
-        /*List<String> cars = new ArrayList<String>();
+        List<String> cars = new ArrayList<String>();
         cars.add("Volvo");
         cars.add("BMW");
         cars.add("Ford");
         cars.add("Mazda");
-        System.out.println(cars);*/
-
+        System.out.println(cars);
 
         // === Array na sua criação é o obrigatório passar o tamanho
-        /*
         System.out.println("Digite o nome1");
         String nome1 = reader.readLine();
 
@@ -40,16 +85,17 @@ public class App {
 
         String[] nomes = {nome1, nome2};
         System.out.println(nomes[0]);
-        */
+    }
 
+    private static void exercicioSomaArray() throws IOException {
         /*
         faça um programa para armazenar valores (double) em uma array
         no final do programa mostre o resultado da multiplicação dos valores
         e o resultado da soma dos valores
         */
 
-        // List<Double> numeros = new ArrayList<Double>();
-    	// Scanner ler = new Scanner(System.in);
+        List<Double> numeros = new ArrayList<Double>();
+    	Scanner ler = new Scanner(System.in);
     		
 	    /*
         System.out.println("Digite o nome 1");
@@ -67,7 +113,7 @@ public class App {
 		System.err.println("Somar: "+ somar);
         */
 
-        /*
+        
         List<Double> lista = new ArrayList<>();
         while(true){
             System.out.println("Digite um número");
@@ -88,9 +134,10 @@ public class App {
 
 		System.err.println("multiplicar: " + multiplicados);
 		System.err.println("Somar: " + soma);
-        */
+        
+    }
 
-
+    private static void exercicioListaArray() {
         /*
         Faça um exercicio para armazenar (array ou lista) o nome de 5 pessoas
         e mostrar o resultado dos nomes formatados, ex:
@@ -100,7 +147,7 @@ public class App {
         */
 
         // === Walter ===
-        /*
+        
         Scanner ler = new Scanner(System.in);
     	List<String> nomes = new ArrayList<String>();
     	for (int i = 1; i <= 5; i++) {
@@ -112,7 +159,6 @@ public class App {
     	for(String nome: nomes) {
     		System.out.println("Nome: "+nome);
     	}
-        */
         
         // === Elmadã ===
         /*
@@ -127,9 +173,10 @@ public class App {
             System.out.println("Nome " + (i+1) + " " + nomes.get(i));
         }
         */
+    }
 
+    private static void utilizandoArray() {
         // === Matriz com array ===
-        /*
         String[][] alunos = new String[3][4];
         String[] nomeNota = {"Danilo", "4"};
         alunos[0] = nomeNota;
@@ -141,9 +188,11 @@ public class App {
         System.out.println("Nota " + alunos[0][1]);
         System.out.println("Nome " + alunos[1][0]);
         System.out.println("Nota " + alunos[1][1]);
-        */
+    }
 
+    private static void utilizandoMatrix() {
         // === Matriz com List ===
+        
         List<List<String>> alunos = new ArrayList<>();
         var aluno1 = new ArrayList<String>();
         aluno1.add("Danilo");
@@ -160,7 +209,9 @@ public class App {
         System.out.println("Nota " + alunos.get(0).get(1));
         System.out.println("Nome " + alunos.get(1).get(0));
         System.out.println("Nota " + alunos.get(1).get(1));
+    }
 
+    private static void exercicioAlunosEscola() {
         /*
         Danilo é dono da escola de programação chamada
         "Torne-se um programador"
@@ -184,6 +235,124 @@ public class App {
         */
 
 
+        /*
+    	 * Autor: Walter Paulo
+    	 * Date: 11/10/2022
+    	 * Exercise: 3 Array List do dia 9 - Desafio 21 dias em Java
+    	 *
+    	 * 
+    	 */
+    	
+        Scanner ler = new Scanner(System.in);
+    	List<String[]> alunos = new ArrayList<String[]>();
+    	
+    	do {
+            //		Coleta
+            String[] dados = new String[7];
+            double soma = 0.0;
+            double media = 0.0;
+            System.out.println("Digite o nome do aluno");
+            dados[0] = ler.next();
+            for(int i = 1; i <= 4; i++) {
+                System.out.println("Digite a nota "+i+": ");
+                dados[i] = ler.next();
+                soma += Double.parseDouble(dados[i]);
+            }
+            
+            //    	Lógica
+            media = soma / 4 ;
+            dados[6] = String.valueOf(media);
+            if(media >= 7)dados[5] = "Aprovado";
+            else if(media >= 5 && media < 7)dados[5] = "Recuperação";
+            else dados[5] = "Reprovado";
+            
+            //    	Armazenamento
+            alunos.add(dados);
+            
+            //    	adição?
+            System.out.println("Adicionar novo usuário: \nSim ou Não");
+            String opcao = ler.next();
+            if(opcao.toLowerCase().equals("não")) break;
+            
+    	}while(true);
+    	
+        //    	Visualização
+    	System.out.println("#".repeat(10)+"[ Relatório ]"+"#".repeat(10));
+    	for(String[] aluno: alunos) {
+    		System.out.println("Nome: "+ aluno[0]+"\n"
+    				+ "Notas: "+ aluno[1]+", "+aluno[2]+", "+aluno[3]+", "+aluno[4]+"\n"
+    				+ "Média: "+aluno[6]+"\n"
+    				+ "Situação: "+aluno[5]+"\n");
+    	}
+    	System.out.println("#".repeat(33)+"\n");
+        
+
+        // ===== Ana =========
+        /*
+        int opcao = 1;
+        Scanner teclado = new Scanner(System.in);
+		List<List<String>> alunos = new ArrayList<>();	
+		
+		System.out.println("...Sistema de Cadastro da Escola Torne-se Um Programador...");
+		System.out.println(".....................Seja bem vindo........................");
+		System.out.println("...........................................................");
+		
+        do{
+            List<String> aluno = new ArrayList<>();
+            System.out.print("Digite o nome do aluno: ");
+            aluno.add(teclado.next());
+            System.out.print("Digite a 1a.Nota: ");
+            Double nota1 = teclado.nextDouble();
+            System.out.print("Digite a 2a.Nota: ");
+            Double nota2 = teclado.nextDouble();
+            System.out.print("Digite a 3a.Nota: ");
+            Double nota3 = teclado.nextDouble();
+            System.out.print("Digite a 4a.Nota: ");
+            Double nota4 = teclado.nextDouble();
+            Double media;
+        
+            media =((nota1 + nota2 + nota3 + nota4)/4);
+
+            aluno.add(nota1.toString());
+            aluno.add(nota2.toString());
+            aluno.add(nota3.toString());
+            aluno.add(nota4.toString());
+            aluno.add(media.toString());
+
+            String situacao = "Reprovado";
+            if(media >= 7) {
+                situacao = "Aprovado";
+            }else if(media >= 5 && media < 7){
+                situacao = "Recuperação";
+            }
+            aluno.add(situacao);
+
+            alunos.add(aluno);
+
+            System.out.println("Deseja adicionar mais um aluno?");
+            System.out.println("0 - sair");
+            System.out.println("1 - adicionar");
+
+            opcao = teclado.nextInt();
+        }
+        while(opcao != 0);
+
+
+        for (List<String> aluno : alunos) {
+            System.out.println("-".repeat(20));
+            System.out.println("Nome = " + aluno.get(0));
+            System.out.println("Nota1 = "+aluno.get(1));
+            System.out.println("Nota2 = "+aluno.get(2));
+            System.out.println("Nota3 = "+aluno.get(3));
+            System.out.println("Nota4 = "+aluno.get(4));
+
+            System.out.println("Média = "+aluno.get(5));
+            System.out.println("Situação = "+aluno.get(6));
+        }
+        */
+    }
+
+    private static void exercicioTabuadaMultiplicador() throws NumberFormatException, IOException {
         /* 
         Agora que você já sabe trabalhar com loop e já fez o primeiro programa da 
         tabuada, do número do 1 ao 10
@@ -219,7 +388,7 @@ public class App {
 
 
         // ==== Luiz =====
-        /*
+        
         System.out.println("*".repeat(60));
         System.out.println("*".repeat(18) + " TABUADA MULTIPLICAÇÃO  " + "*".repeat(18));
         System.out.println("*".repeat(60));
@@ -235,8 +404,9 @@ public class App {
         for (int i = 1; i <= calcularNumeroVezes; i++) {
             System.out.printf("%d x %d = %d%n", calcularNumeroN, i, (calcularNumeroN * i));
         }
-        */
+    }
 
+    private static void exercicioTabuada() throws NumberFormatException, IOException {
         /* 
         Agora que você já sabe trabalhar com loop
         faça um programa para calcular a tabuada.
@@ -279,7 +449,7 @@ public class App {
 
 
         // === Luiz ====
-        /*
+        
         System.out.println("*".repeat(60));
         System.out.println("*".repeat(18) + " TABUADA MULTIPLICAÇÃO  " + "*".repeat(18));
         System.out.println("*".repeat(60));
@@ -292,9 +462,9 @@ public class App {
         for (int i = 1; i <= 10; i++) {
             System.out.printf("%d x %d = %d%n", calcularNumeroN, i, (calcularNumeroN * i));
         }
-        */
+    }
 
-
+    private static void exercicioBombeiro() throws NumberFormatException, IOException {
         /*
          * 
          * Denilson é um bombeiro e que precisa apagar as chamas de um prédio
@@ -333,7 +503,7 @@ public class App {
          */
 
         // ==== Professor ===
-        /*
+        
         System.out.println("===== [ Programa do bombeiro denilson ] ======");
         System.out.println("Digite a quantidade de metros em chama:");
         int metrosChama = Integer.parseInt(reader.readLine());
@@ -365,7 +535,7 @@ public class App {
             fase++;
         }
         while(true);
-        */
+        
 
         /*
         * Autor: Walter Paulo
@@ -373,157 +543,163 @@ public class App {
         * Exercise: Loops do dia 7 - Desafio 21 dias em Java
         * 
     
-    String MSG_TITULO = "Sistema de Incêndio\n";
-    String MENU_PRINCIPAL = "\n\nEscolhe uma opção:\n"
-            + "( 1 ) Digite a quantidade de litros do caminhão\n"
-            + "( 2 ) Histórico\n"
-            + "(sair) Sair\n";
-    
-    String PERGUNTA_TAMANHO_METRO_FOGO = "\nDigite o tamanho em metro do fogo";
-    String PERGUNTA_QUANTIDADE_LITRO = "\nDigite a quantidade de litros do caminhão";
-    String MENSAGEM = "";
-    String HISTORICO = "\n Histórico\n";
-    
-    
-    boolean ocorrencia = true;
-    boolean abastecer = true;
-    boolean calculo = false;
-    
-    String menu = "";
-    
-    double tamanhoMetroFogo = 0.0;
-    double quantidadeLitro = 0.0;
-    double quantidadeAguaApaparFogo = 0.0;
-    double quantidadeAguaCaminhao = 0.0;
-    int count = 0;
-    do {
+        String MSG_TITULO = "Sistema de Incêndio\n";
+        String MENU_PRINCIPAL = "\n\nEscolhe uma opção:\n"
+                + "( 1 ) Digite a quantidade de litros do caminhão\n"
+                + "( 2 ) Histórico\n"
+                + "(sair) Sair\n";
         
-        if(ocorrencia) {
-            MENSAGEM =  MSG_TITULO;
-            MENSAGEM += PERGUNTA_TAMANHO_METRO_FOGO;
-            String txttamanhoMetroFogo = JOptionPane.showInputDialog(MENSAGEM);
-            tamanhoMetroFogo = Double.parseDouble(txttamanhoMetroFogo);
-            calculo = true;
+        String PERGUNTA_TAMANHO_METRO_FOGO = "\nDigite o tamanho em metro do fogo";
+        String PERGUNTA_QUANTIDADE_LITRO = "\nDigite a quantidade de litros do caminhão";
+        String MENSAGEM = "";
+        String HISTORICO = "\n Histórico\n";
+        
+        
+        boolean ocorrencia = true;
+        boolean abastecer = true;
+        boolean calculo = false;
+        
+        String menu = "";
+        
+        double tamanhoMetroFogo = 0.0;
+        double quantidadeLitro = 0.0;
+        double quantidadeAguaApaparFogo = 0.0;
+        double quantidadeAguaCaminhao = 0.0;
+        int count = 0;
+        do {
             
-        }
-        if(abastecer) {
-            MENSAGEM = MSG_TITULO; 
-            MENSAGEM += PERGUNTA_QUANTIDADE_LITRO;
-            if(quantidadeAguaApaparFogo <= quantidadeAguaCaminhao && quantidadeAguaCaminhao > 0.0) {
-                MENSAGEM = MSG_TITULO;
-                MENSAGEM += "Litro(s) não adicionado, fogo apagado!";
-                JOptionPane.showMessageDialog(null, MENSAGEM );
-                calculo = false;
-                abastecer = false;
-                quantidadeAguaCaminhao = 0.0;
-                continue;
-            }else if(quantidadeAguaApaparFogo > quantidadeAguaCaminhao && quantidadeAguaCaminhao > 0.0){
-                String quantidaDeListro = JOptionPane.showInputDialog(MENSAGEM);
-                quantidadeLitro = Double.parseDouble(quantidaDeListro);
-                ocorrencia = false;
+            if(ocorrencia) {
+                MENSAGEM =  MSG_TITULO;
+                MENSAGEM += PERGUNTA_TAMANHO_METRO_FOGO;
+                String txttamanhoMetroFogo = JOptionPane.showInputDialog(MENSAGEM);
+                tamanhoMetroFogo = Double.parseDouble(txttamanhoMetroFogo);
                 calculo = true;
+                
             }
-            else if(quantidadeAguaApaparFogo == quantidadeAguaCaminhao && quantidadeAguaCaminhao == 0.0){
-                String quantidaDeListro = JOptionPane.showInputDialog(MENSAGEM);
-                quantidadeLitro = Double.parseDouble(quantidaDeListro);
-                if(ocorrencia)
-                    quantidadeAguaApaparFogo = tamanhoMetroFogo / 5;
-                ocorrencia = false;
-                calculo = true;
-            }else {
-                MENSAGEM = MSG_TITULO;
-                MENSAGEM += "Litro(s) não adicionado, fogo apagado!";
-                JOptionPane.showMessageDialog(null, MENSAGEM );
+            if(abastecer) {
+                MENSAGEM = MSG_TITULO; 
+                MENSAGEM += PERGUNTA_QUANTIDADE_LITRO;
+                if(quantidadeAguaApaparFogo <= quantidadeAguaCaminhao && quantidadeAguaCaminhao > 0.0) {
+                    MENSAGEM = MSG_TITULO;
+                    MENSAGEM += "Litro(s) não adicionado, fogo apagado!";
+                    JOptionPane.showMessageDialog(null, MENSAGEM );
+                    calculo = false;
+                    abastecer = false;
+                    quantidadeAguaCaminhao = 0.0;
+                    continue;
+                }else if(quantidadeAguaApaparFogo > quantidadeAguaCaminhao && quantidadeAguaCaminhao > 0.0){
+                    String quantidaDeListro = JOptionPane.showInputDialog(MENSAGEM);
+                    quantidadeLitro = Double.parseDouble(quantidaDeListro);
+                    ocorrencia = false;
+                    calculo = true;
+                }
+                else if(quantidadeAguaApaparFogo == quantidadeAguaCaminhao && quantidadeAguaCaminhao == 0.0){
+                    String quantidaDeListro = JOptionPane.showInputDialog(MENSAGEM);
+                    quantidadeLitro = Double.parseDouble(quantidaDeListro);
+                    if(ocorrencia)
+                        quantidadeAguaApaparFogo = tamanhoMetroFogo / 5;
+                    ocorrencia = false;
+                    calculo = true;
+                }else {
+                    MENSAGEM = MSG_TITULO;
+                    MENSAGEM += "Litro(s) não adicionado, fogo apagado!";
+                    JOptionPane.showMessageDialog(null, MENSAGEM );
+                }
             }
-        }
-        
-        if(calculo) {
-            quantidadeAguaCaminhao += quantidadeLitro / 5;
-            quantidadeLitro = 0.0;
-            count += 1;
-            if( quantidadeAguaApaparFogo > quantidadeAguaCaminhao) {
-                HISTORICO += "\nFogo: ACESSO   Apagado: "+( quantidadeAguaCaminhao * 5 )+" metro(s)  Falta: "
-                        +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count;
-                JOptionPane.showMessageDialog(null, HISTORICO);
-                calculo = false;
+            
+            if(calculo) {
+                quantidadeAguaCaminhao += quantidadeLitro / 5;
+                quantidadeLitro = 0.0;
+                count += 1;
+                if( quantidadeAguaApaparFogo > quantidadeAguaCaminhao) {
+                    HISTORICO += "\nFogo: ACESSO   Apagado: "+( quantidadeAguaCaminhao * 5 )+" metro(s)  Falta: "
+                            +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count;
+                    JOptionPane.showMessageDialog(null, HISTORICO);
+                    calculo = false;
+                    abastecer = true;
+                }
+                else if(quantidadeAguaApaparFogo == quantidadeAguaCaminhao) {
+                    HISTORICO += "\nFogo: APAGADO Apagado: "+( quantidadeAguaCaminhao * 5 )+" metro(s)  Falta: "
+                            +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count ;
+                    JOptionPane.showMessageDialog(null, HISTORICO);
+                    calculo = false;
+                }else {
+                    calculo = false;
+                    abastecer = false;
+                    HISTORICO += "\nFogo: APAGADO Apagado: "+(quantidadeAguaApaparFogo)*5+" metro(s)  Falta: "
+                            +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count ;
+                }
+            }
+            
+            menu = MSG_TITULO;
+            menu += MENU_PRINCIPAL;
+            String opcao = JOptionPane.showInputDialog(menu);
+            
+            if(Integer.parseInt(opcao) == 1)
                 abastecer = true;
-            }
-            else if(quantidadeAguaApaparFogo == quantidadeAguaCaminhao) {
-                HISTORICO += "\nFogo: APAGADO Apagado: "+( quantidadeAguaCaminhao * 5 )+" metro(s)  Falta: "
-                        +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count ;
+            
+            if(Integer.parseInt(opcao) == 2) {
                 JOptionPane.showMessageDialog(null, HISTORICO);
-                calculo = false;
-            }else {
-                calculo = false;
                 abastecer = false;
-                HISTORICO += "\nFogo: APAGADO Apagado: "+(quantidadeAguaApaparFogo)*5+" metro(s)  Falta: "
-                        +((quantidadeAguaApaparFogo - quantidadeAguaCaminhao) * 5)+" litro(s), fase "+count ;
             }
-        }
-        
-        menu = MSG_TITULO;
-        menu += MENU_PRINCIPAL;
-        String opcao = JOptionPane.showInputDialog(menu);
-        
-        if(Integer.parseInt(opcao) == 1)
-            abastecer = true;
-        
-        if(Integer.parseInt(opcao) == 2) {
-            JOptionPane.showMessageDialog(null, HISTORICO);
-            abastecer = false;
-        }
-        
-        if(opcao.toLowerCase().equals("sair")) {
-            break;
-        }
-        
-    } while(true);
-    */
+            
+            if(opcao.toLowerCase().equals("sair")) {
+                break;
+            }
+            
+        } while(true);
+        */
+    }
 
-
+    private static void whileDoWhileSyntax() throws IOException {
         // == Loop syntaxe
-        /*
-         * System.out.println("Digite 1 para entrar no loop");
-         * String valorDigitado = reader.readLine();
-         * while (valorDigitado.equals("1")) {
-         * System.out.println("entrei");
-         * System.out.println("Digite algo diferente de 1 para sair do loop");
-         * valorDigitado = reader.readLine();
-         * }
-         * 
-         * while (true) { // enquanto
-         * System.out.println("entrei");
-         * System.out.println("Digite algo diferente de 1 para sair do loop");
-         * String sair = reader.readLine();
-         * if(!sair.equals("1")) break;
-         * }
-         * 
-         * while (true) { // enquanto
-         * System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
-         * String opcao = reader.readLine();
-         * 
-         * if(opcao.equals("pular")) continue;
-         * 
-         * System.out.println("============ [ " + opcao + " ] ============");
-         * 
-         * if(opcao.equals("sair")) break;
-         * }
-         * 
-         * String opcao = "sair";
-         * do{
-         * System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
-         * opcao = reader.readLine();
-         * System.out.println("============ [ " + opcao + " ] ============");
-         * }while(!opcao.equals("sair"));
-         * 
-         */
+        System.out.println("Digite 1 para entrar no loop");
+        String valorDigitado = reader.readLine();
 
+        while (valorDigitado.equals("1")) {
+            System.out.println("entrei");
+            System.out.println("Digite algo diferente de 1 para sair do loop");
+            valorDigitado = reader.readLine();
+        }
+        
+        while (true) { // enquanto
+            System.out.println("entrei");
+            System.out.println("Digite algo diferente de 1 para sair do loop");
+            String sair = reader.readLine();
+            if(!sair.equals("1")) break;
+        }
+        
+        while (true) { // enquanto
+            System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
+            String opcao = reader.readLine();
+            
+            if(opcao.equals("pular")) continue;
+            
+            System.out.println("============ [ " + opcao + " ] ============");
+            
+            if(opcao.equals("sair")) break;
+        }
+        
+        String opcao = "sair";
+        do{
+            System.out.println("Digite algo ou se quiser sair do loop digite 'sair' ");
+            opcao = reader.readLine();
+            System.out.println("============ [ " + opcao + " ] ============");
+        }
+        while(!opcao.equals("sair"));
+        
+        
+    }
+
+    private static void loopFor() {
         // == for sintaxe
-        // for (int i = 0; i < 5; i++) { // para i iniciando com 0 até menor que 5
-        // System.out.println("o numero é: ");
-        // System.out.println(i);
-        // }
+        for (int i = 0; i < 5; i++) { // para i iniciando com 0 até menor que 5
+            System.out.println("o numero é: ");
+            System.out.println(i);
+        }
+    }
 
+    private static void exercicioGovernoPonte() {
         /*
          * /*
          * O Governo so Brasil está precisando construir uma ponte
@@ -553,8 +729,7 @@ public class App {
          * Date: 08/10/2022
          * Exercise: 2 do dia 6 - Desafio 21 dias em Java
          */
-
-        /*
+        
         Scanner ler = new Scanner(System.in);
 
         double taxaFerroFundido = 1.2;
@@ -620,8 +795,10 @@ public class App {
         } else {
             JOptionPane.showMessageDialog(null, msgSair);
         }
-        */
+        
+    }
 
+    private static void exercicioPaulaPetshop() {
         /*
          * Paula tem uma petshop, ela está precisando de um sistema
          * para controlar seus serviços. neste sistema, precisa cadastrar
@@ -641,54 +818,45 @@ public class App {
          */
 
         // == algoritimo do professor
-        /*
-         * var mensagem = "[ Petshop da Paula ]\nVamos começar?";
-         * JOptionPane.showMessageDialog(null, mensagem);
-         * 
-         * String nome = JOptionPane.showInputDialog("Digite o nome do cliente");
-         * String telefone = JOptionPane.showInputDialog("Digite o telefone do(s) " +
-         * nome);
-         * String nomeDoPet = JOptionPane.showInputDialog("Digite o nome do Pet");
-         * double pesoDoPet =
-         * Double.parseDouble(JOptionPane.showInputDialog("Digite o peso do(a) " +
-         * nomeDoPet));
-         * int sexoPet = Integer.parseInt(JOptionPane.showInputDialog("O(a) " +
-         * nomeDoPet + " é macho ou fêmea ?\n1 - Macho\n2 - Fêmea"));
-         * double valorPorPeso =
-         * Double.parseDouble(JOptionPane.showInputDialog("Digite o R$ valor por peso"))
-         * ;
-         * 
-         * // String nome = "Fabiana";
-         * // String telefone = "(11) 99999-9999";
-         * // String nomeDoPet = "Maikey";
-         * // double pesoDoPet = 20.5;
-         * // int sexoPet = 1;
-         * // double valorPorPeso = 2.6;
-         * 
-         * double resultado = 0;
-         * if(sexoPet == 2){
-         * resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 /
-         * 100;
-         * }
-         * else{
-         * resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 /
-         * 100;
-         * }
-         * 
-         * String relatorio = "Nome do cliente: " + nome + "\n";
-         * relatorio += "Telefone do(a) " + nome + ": " + telefone + "\n";
-         * relatorio += "Pet do(a) " + nome + ": " + nomeDoPet + "\n";
-         * relatorio += "Peso do(a) " + nomeDoPet + ": " + pesoDoPet + "\n";
-         * 
-         * Locale localeBR = new Locale( "pt", "BR" );
-         * NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
-         * String valorFormatado = dinheiroBR.format(resultado);
-         * 
-         * relatorio += "Valor total do serviço: " + valorFormatado;
-         * 
-         * //System.out.println(relatorio);
-         * JOptionPane.showMessageDialog(null, relatorio);
-         */
+        var mensagem = "[ Petshop da Paula ]\nVamos começar?";
+        JOptionPane.showMessageDialog(null, mensagem);
+        
+        String nome = JOptionPane.showInputDialog("Digite o nome do cliente");
+        String telefone = JOptionPane.showInputDialog("Digite o telefone do(s) " + nome);
+        String nomeDoPet = JOptionPane.showInputDialog("Digite o nome do Pet");
+        double pesoDoPet = Double.parseDouble(JOptionPane.showInputDialog("Digite o peso do(a) " + nomeDoPet));
+        int sexoPet = Integer.parseInt(JOptionPane.showInputDialog("O(a) " + nomeDoPet + " é macho ou fêmea ?\n1 - Macho\n2 - Fêmea"));
+        double valorPorPeso = Double.parseDouble(JOptionPane.showInputDialog("Digite o R$ valor por peso"));
+        
+        // String nome = "Fabiana";
+        // String telefone = "(11) 99999-9999";
+        // String nomeDoPet = "Maikey";
+        // double pesoDoPet = 20.5;
+        // int sexoPet = 1;
+        // double valorPorPeso = 2.6;
+         
+         double resultado = 0;
+         if(sexoPet == 2){
+            resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 / 100;
+         }
+         else{
+            resultado = (pesoDoPet * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 / 100;
+         }
+         
+         String relatorio = "Nome do cliente: " + nome + "\n";
+         relatorio += "Telefone do(a) " + nome + ": " + telefone + "\n";
+         relatorio += "Pet do(a) " + nome + ": " + nomeDoPet + "\n";
+         relatorio += "Peso do(a) " + nomeDoPet + ": " + pesoDoPet + "\n";
+         
+         Locale localeBR = new Locale( "pt", "BR" );
+         NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
+         String valorFormatado = dinheiroBR.format(resultado);
+         
+         relatorio += "Valor total do serviço: " + valorFormatado;
+         
+         //System.out.println(relatorio);
+         JOptionPane.showMessageDialog(null, relatorio);
+         
 
         // Walter
         //Scanner ler = new Scanner(System.in);
@@ -698,88 +866,174 @@ public class App {
          * Exercise: 1 do dia 6 - Desafio 21 dias em Java
          */
         /*
-         * System.out.println("===============[ PetAni ]===============");
-         * System.out.println("Olá Paula, bom dia");
-         * System.out.println("===============[ Cadastro Cliente ]===============");
-         * System.err.println("Digite o nome");
-         * var nomeDoCliente = ler.next();
-         * System.out.println("Digite o telefone");
-         * var telefoneCliente = ler.next();
-         * System.out.println("===============[ Cadastro do Pet ]===============");
-         * System.err.println("Digite o nome");
-         * var nomeDoPet = ler.next();
-         * System.err.println("Digite o sexo: M => macho / F => Fêmea");
-         * var sexoDoPet = ler.next();
-         * System.err.println("Digite o peso:");
-         * var pesoDoPet = ler.nextDouble();
-         * 
-         * System.out.println("===============[ Cadastro do Preço ]===============");
-         * System.err.println("Digite o valor por peso");
-         * var valorPorPeso = ler.nextDouble();
-         * var valorTotal = 0.0;
-         * if(sexoDoPet.equals("M")) {
-         * valorTotal = (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15
-         * / 100;
-         * }
-         * else {
-         * valorTotal = (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30
-         * / 100;
-         * }
-         * 
-         * DecimalFormat moedaBr = new DecimalFormat( "#,###,###,##0.00" );
-         * 
-         * System.out.println("============[ Relatório ]=======================");
-         * System.out.println("Nome do cliente: "+ nomeDoCliente);
-         * System.out.println("Telefone: "+ telefoneCliente);
-         * System.out.println("\n-----[ Pet ]--------");
-         * System.out.println("Nome do Pet: "+nomeDoPet);
-         * System.out.println("Sexo: "+sexoDoPet);
-         * System.out.println("Peso: "+pesoDoPet);
-         * System.out.println("\n---------[ Pagamento ]--------");
-         * System.err.println("Valor Total R$ "+ moedaBr.format(valorTotal) );
-         */
+        System.out.println("===============[ PetAni ]===============");
+        System.out.println("Olá Paula, bom dia");
+        System.out.println("===============[ Cadastro Cliente ]===============");
+        System.err.println("Digite o nome");
+        var nomeDoCliente = ler.next();
+        System.out.println("Digite o telefone");
+        var telefoneCliente = ler.next();
+        System.out.println("===============[ Cadastro do Pet ]===============");
+        System.err.println("Digite o nome");
+        var nomeDoPet = ler.next();
+        System.err.println("Digite o sexo: M => macho / F => Fêmea");
+        var sexoDoPet = ler.next();
+        System.err.println("Digite o peso:");
+        var pesoDoPet = ler.nextDouble();
+        
+        System.out.println("===============[ Cadastro do Preço ]===============");
+        System.err.println("Digite o valor por peso");
+        var valorPorPeso = ler.nextDouble();
+        var valorTotal = 0.0;
+        if(sexoDoPet.equals("M")) {
+            valorTotal = (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 15 / 100;
+        }
+        else {
+            valorTotal = (valorPorPeso * valorPorPeso) + (pesoDoPet * valorPorPeso) * 30 / 100;
+        }
+        
+        DecimalFormat moedaBr = new DecimalFormat( "#,###,###,##0.00" );
+        
+        System.out.println("============[ Relatório ]=======================");
+        System.out.println("Nome do cliente: "+ nomeDoCliente);
+        System.out.println("Telefone: "+ telefoneCliente);
+        System.out.println("\n-----[ Pet ]--------");
+        System.out.println("Nome do Pet: "+nomeDoPet);
+        System.out.println("Sexo: "+sexoDoPet);
+        System.out.println("Peso: "+pesoDoPet);
+        System.out.println("\n---------[ Pagamento ]--------");
+        System.err.println("Valor Total R$ "+ moedaBr.format(valorTotal) );
+        */
+    }
 
+    private static void somaTiposPrimitivos() {
         // === tipos primitivos mais utilizados
-        // int inteiro = 5;
-        // double moeda = 5.99;
-        // char umCaractere = 'D';
-        // boolean verdadeiroFalso = true;
-        // String texto = "Hello";
+        int inteiro = 5;
+        double moeda = 5.99;
+        char umCaractere = 'D';
+        boolean verdadeiroFalso = true;
+        String texto = "Hello";
 
-        // double restoDivisao = 3.5/2;
-        // System.out.println("O resto da divisão é: " + restoDivisao);
+        double restoDivisao = 3.5/2;
+        System.out.println("O resto da divisão é: " + restoDivisao);
 
-        // var hojeEstaFrio = false;
-        // System.out.println("O tempo está frio?: " + hojeEstaFrio);
+        var hojeEstaFrio = false;
+        System.out.println("O tempo está frio?: " + hojeEstaFrio);
 
-        // var moeda = 4.5;
-        // var inteiro = 4;
-        // var stringNumero = "8";
+        var moeda2 = 4.5;
+        var inteiro2 = 4;
+        var stringNumero = "8";
 
-        // var valor = moeda * inteiro;
-        // var valor2 = moeda - inteiro;
-        // var valor3 = moeda + inteiro + Double.parseDouble(stringNumero);
+        var valor = moeda * inteiro;
+        var valor2 = moeda - inteiro;
+        var valor3 = moeda + inteiro + Double.parseDouble(stringNumero);
 
-        // System.out.println("Resultado: " + valor3);
+        System.out.println("Resultado: " + valor3);
+    }
 
+    private static void formatacaoContatenacao() {
         // == concatenações
-        // var rotulo = "Nome: ";
-        // var nome = "Leandro";
+        var rotulo = "Nome: ";
+        var nome = "Leandro";
 
-        // var dadoCompleto = rotulo + nome;
-        // System.out.println("Dado: " + dadoCompleto);
+        var dadoCompleto = rotulo + nome;
+        System.out.println("Dado: " + dadoCompleto);
 
-        // var dadoCompleto = rotulo.concat(nome);
-        // System.out.println("Dado: " + dadoCompleto);
+        var dadoCompleto2 = rotulo.concat(nome);
+        System.out.println("Dado: " + dadoCompleto2);
 
-        // var resultado = String.format("O valor de nome é: %s e o valor de rotulo é:
-        // %s", nome, rotulo);
-        // System.out.println(resultado);
+        var resultado = String.format("O valor de nome é: %s e o valor de rotulo é: %s", nome, rotulo);
+        System.out.println(resultado);
 
-        // var calculo = 4.555;
-        // System.out.printf( "O resultado é %.2f", calculo); // mostrar número com 2
-        // cadas decimais
+        var calculo = 4.555;
+        System.out.printf( "O resultado é %.2f", calculo); // mostrar número com 2 cadas decimais
+    }
 
+    private static void formatarPadraoAmericano() {
+        // == padrão americano
+        double d = 1243123.1;
+        DecimalFormat df = new DecimalFormat("###,###.00");
+        System.out.println(df.format(d));
+    }
+
+    private static void formatarMoedaBr() {
+        // == padrão Brasil
+        double d = 1243123.1;
+        Locale localeBR = new Locale( "pt", "BR" );
+        NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
+        System.out.println(dinheiroBR.format(d));
+    }
+
+    public static void compareDates(String d1,String d2)
+    {
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            var date1 = sdf.parse(d1);
+            var date2 = sdf.parse(d2);
+
+            System.out.println("Date1"+sdf.format(date1));
+            System.out.println("Date2"+sdf.format(date2));System.out.println();
+
+            if(date1.after(date2)){
+                System.out.println("Date1 (" + date1 + ") é maior Date2 (" + date2 + ")");
+            }
+            if(date1.before(date2)){
+                System.out.println("Date1 (" + date1 + ") é menor Date2 (" + date2 + ")");
+            }
+
+            if(date1.equals(date2)){
+                System.out.println("Date1 is equal Date2");
+            }
+
+            System.out.println();
+        }
+        catch(ParseException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private static void operadoresLogicos() {
+        // == comparação em java com operadores lógicos
+        int numero1 = 2;
+        int numero2 = 1;
+
+        // operador lógico && = e
+        // operador lógico || = ou
+        var resultado = numero1 <= numero2 || numero1 > numero2;
+        var resultado2 = numero1 <= numero2 && numero1 > numero2;
+        System.out.println( resultado );
+        System.out.println( resultado2 );
+
+        var dataInicial = LocalDateTime.parse("2022-01-01T00:00:00"); // padrão UTC data
+        var dataFinal = LocalDateTime.parse("2022-01-30T02:00:00");
+        var dataCorrente = LocalDateTime.parse("2022-01-15T10:30:35");
+        var resultadoDataOpracao = dataFinal.isAfter(dataInicial) && dataCorrente.isBefore(dataFinal);
+        System.out.println("Resultado data: " + resultadoDataOpracao);
+
+        var diaInicial = 1;
+        var diaFinal = 30;
+        var diaCorrente = 15;
+        var resultadoDiaOperacao = diaCorrente >= diaInicial && diaCorrente <= diaFinal;
+        System.out.println("Resultado dia: " + resultadoDiaOperacao);
+    }
+
+    private static void exemploCondicionaisTernario() {
+        // === conticionais
+        int valorTotal2 = 101;
+        if(valorTotal2 > 100){
+            System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
+            System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
+        }
+
+        if(valorTotal2 > 100) System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
+
+        // === ternário
+        var resultado = "Padrão";
+        resultado = valorTotal2 > 100 ? "Foiii verdade" : "";
+        System.out.println(resultado);
+    }
+
+    private static void exercicioJoaoCondicional() throws NumberFormatException, IOException {
         /*
          * João tem um armazem e precisa de um programa que solicite
          * o nome do seu cliente
@@ -800,105 +1054,74 @@ public class App {
          * -----------------------------
          */
 
-        // == padrão americano
-        // double d = 1243123.1;
-        // DecimalFormat df = new DecimalFormat("###,###.00");
-        // System.out.println(df.format(d));
+        System.out.println("==============[ Calculo produto/cliente ]===================");
+        System.out.println("Olá João seja muito bem vindo, vamos começar?");
 
-        // == padrão Brasil
-        // double d = 1243123.1;
-        // Locale localeBR = new Locale( "pt", "BR" );
-        // NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
-        // System.out.println(dinheiroBR.format(d));
+        System.out.println("Digite o nome do seu cliente: ");
+        var nome = reader.readLine();
 
-        // == comparação em java com operadores lógicos
-        // int numero1 = 2;
-        // int numero2 = 1;
+        System.out.println("Digite o endereço do seu cliente: ");
+        var endereco = reader.readLine();
 
-        // operador lógico && = e
-        // operador lógico || = ou
-        // var resultado = numero1 <= numero2 || numero1 > numero2;
-        // var resultado2 = numero1 <= numero2 && numero1 > numero2;
-        // System.out.println( resultado );
+        System.out.println("Digite o nome do produto: ");
+        var produto = reader.readLine();
 
-        // var inicial = "01/01/20222";
-        // var dataFinal = "30/01/20222";
-        // var diaCorrente = "15/01/2022";
-        // var diaCorrenteEntreDataInicialEFinal = diaCorrente >= inicial && diaCorrente
-        // <= dataFinal;
+        System.out.printf("Digite o valor do produto (%s): ", produto);
+        var valor = Double.parseDouble(reader.readLine());
 
-        // var inicial = 1;
-        // var diaFinal = 30;
-        // var diaCorrente = 15;
-        // var diaCorrenteEntreDataInicialEFinal = diaCorrente >= inicial && diaCorrente
-        // <= diaFinal;
-        // System.out.println(diaCorrenteEntreDataInicialEFinal);
+        System.out.printf("Digite a quantidade do produto (%s): ", produto);
+        var quantidade = Integer.parseInt(reader.readLine());
 
-        // === conticionais
-        // int valorTotal2 = 101;
-        // if(valorTotal2 > 100){
-        // System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto
-        // na proxima");
-        // System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto
-        // na proxima");
-        // }
+        var valorTotal = valor * quantidade;
 
-        // if(valorTotal2 > 100) System.out.println("Seu pedido foi maior que R$ 100 e
-        // você terá um desconto na proxima");
+        System.out.println("-----------------------------");
+        System.out.printf("Cliente: %s \n", nome);
+        System.out.printf("Endereço de entrega: %s \n", endereco);
+        System.out.printf("Comprou o material: %s no valor de R$ %s \n", produto, valor);
+        System.out.printf("O valor total da compra deu: R$ %.2f \n", valorTotal);
 
-        // === ternário
-        // var resultado = "Padrão";
-        // resultado = valorTotal2 > 100 ? "Foiii verdade" : "";
-        // System.out.println(resultado);
+        if(valorTotal > 100){
+            System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto na proxima");
+        }
+    }
 
-        // System.out.println("==============[ Calculo produto/cliente
-        // ]===================");
-        // System.out.println("Olá João seja muito bem vindo, vamos começar?");
+    private static void formatarMoeda() throws IOException {
+        System.out.println("-----------------------------");
 
-        // System.out.println("Digite o nome do seu cliente: ");
-        // var nome = reader.readLine();
+        System.out.printf("Digite um valor \n");
+        var valorString = reader.readLine();
+        valorString = valorString.replace(".", "");
+        valorString = valorString.replace(",", ".");
+        var valor = Double.parseDouble(valorString);
 
-        // System.out.println("Digite o endereço do seu cliente: ");
-        // var endereco = reader.readLine();
+        Locale localeBR = new Locale( "pt", "BR" );
+        NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
+        System.out.printf("O valor total da compra deu: R$ %s \n",
+        dinheiroBR.format(valor));
 
-        // System.out.println("Digite o nome do produto: ");
-        // var produto = reader.readLine();
+        System.out.printf("Teste %s %n", 4.5);
+        System.out.println("Segunda Linha");
+    }
 
-        // System.out.printf("Digite o valor do produto (%s): ", produto);
-        // var valor = Double.parseDouble(reader.readLine());
+    private static void exercicioJoaoOperacao() throws NumberFormatException, IOException {
+        // professor
+        System.out.println("==============================");
+        System.out.println("Olá João, seja muito bem vindo");
+        System.out.println("==============================");
+        System.out.println("João percebi que você quer resolver esta operação:");
+        System.out.println("(x * 8 + y) - x + y / 100");
+        System.out.
+        println("Para isso preciso que o senhor digite o valor de x e de y, então:");
+        System.out.println("Digite o valor de x");
+        int x = Integer.parseInt(reader.readLine());
+        System.out.println("Digite o valor de y");
+        int y = Integer.parseInt(reader.readLine());
+        var operacao = (x * 8 + y) - x + y / 100;
+        
+        System.out.println("João já fiz o calculo e o resultado da operação: ");
+        System.out.println("(" + x + " * 8 + " + y + ") - " + x + " + " + y + " / 100");
+        System.out.println("Foi: " + operacao);
 
-        // System.out.printf("Digite a quantidade do produto (%s): ", produto);
-        // var quantidade = Integer.parseInt(reader.readLine());
-
-        // var valorTotal = valor * quantidade;
-
-        // System.out.println("-----------------------------");
-        // System.out.printf("Cliente: %s \n", nome);
-        // System.out.printf("Endereço de entrega: %s \n", endereco);
-        // System.out.printf("Comprou o material: %s no valor de R$ %s \n", produto,
-        // valor);
-        // System.out.printf("O valor total da compra deu: R$ %.2f \n", valorTotal);
-
-        // if(valorTotal > 100){
-        // System.out.println("Seu pedido foi maior que R$ 100 e você terá um desconto
-        // na proxima");
-        // }
-
-        // System.out.println("-----------------------------");
-
-        // System.out.printf("Digite um valor \n");
-        // var valorString = reader.readLine();
-        // valorString = valorString.replace(".", "");
-        // valorString = valorString.replace(",", ".");
-        // var valor = Double.parseDouble(valorString);
-
-        // Locale localeBR = new Locale( "pt", "BR" );
-        // NumberFormat dinheiroBR = NumberFormat.getCurrencyInstance(localeBR);
-        // System.out.printf("O valor total da compra deu: R$ %s \n",
-        // dinheiroBR.format(valor));
-
-        // System.out.printf("Teste %s %n", 4.5);
-        // System.out.println("Segunda Linha");
 
         /*
          * Exercicio 1
@@ -977,68 +1200,45 @@ public class App {
          * 
          * System.out.println("O resultado é: " + resultado);
          */
-
-        /*
-         * // professor
-         * System.out.println("==============================");
-         * System.out.println("Olá João, seja muito bem vindo");
-         * System.out.println("==============================");
-         * System.out.println("João percebi que você quer resolver esta operação:");
-         * System.out.println("(x * 8 + y) - x + y / 100");
-         * System.out.
-         * println("Para isso preciso que o senhor digite o valor de x e de y, então:");
-         * System.out.println("Digite o valor de x");
-         * int x = Integer.parseInt(reader.readLine());
-         * System.out.println("Digite o valor de y");
-         * int y = Integer.parseInt(reader.readLine());
-         * var operacao = (x * 8 + y) - x + y / 100;
-         * 
-         * System.out.println("João já fiz o calculo e o resultado da operação: ");
-         * System.out.println("(" + x + " * 8 + " + y + ") - " + x + " + " + y +
-         * " / 100");
-         * System.out.println("Foi: " + operacao);
-         */
-
-        /*
-         * System.out.println("Digite um número");
-         * int numero = Integer.parseInt(reader.readLine());
-         * var resultado = numero + 1000;
-         * System.out.println("O resultado de (" + numero + ") + 1000 é de : " +
-         * resultado);
-         */
-
-        /*
-         * // mostre()
-         * System.out.println("Digite o seu nome");
-         * 
-         * // leia()
-         * var nome = reader.readLine();
-         * 
-         * // mostre() mostrando dados concatenando variável nome capturada
-         * System.out.println("O nome digitado foi: " + nome);
-         */
-
-        /*
-         * String name = reader.readLine();
-         * 
-         * int numero1 = 3;
-         * var numero2 = 5;
-         * 
-         * int soma = numero1 + numero2;
-         * 
-         * // mostre() # mostra informação na tela
-         * System.out.println( "O resultado da operação é " + soma );
-         */
-
-
     }
+
+    private static void capturaCalculaNumero() throws NumberFormatException, IOException {
+        
+        System.out.println("Digite um número");
+        int numero = Integer.parseInt(reader.readLine());
+        var resultado = numero + 1000;
+        System.out.println("O resultado de (" + numero + ") + 1000 é de : " +
+        resultado);
+        
+    }
+
+    private static void capturaNome() throws IOException {
+        // mostre()
+        System.out.println("Digite o seu nome");
+        
+        // leia()
+        var nome = reader.readLine();
+        
+        // mostre() mostrando dados concatenando variável nome capturada
+        System.out.println("O nome digitado foi: " + nome);
+    }
+
+    private static void soma() {
+        int numero1 = 3;
+        var numero2 = 5;
+        
+        int soma = numero1 + numero2;
+        
+        // mostre() # mostra informação na tela
+        System.out.println( "O resultado da operação é " + soma );
+    }
+
     
-    /*
     private static JFrame frame;
     private static JTextField textField_1;
     private static JTextField textField_2;
     
-    public static void exemploSwingFotm(){
+    public static void exemploSwingForm(){
         frame = new JFrame();
         frame.setBounds(100, 100, 730, 489);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1107,5 +1307,5 @@ public class App {
         App window = new App();
         window.frame.setVisible(true);
     }
-    */
+    
 }
