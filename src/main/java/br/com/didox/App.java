@@ -3,10 +3,186 @@ package br.com.didox;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
+    
     public static void main(String[] args) throws IOException {
+        
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        // ==== passando parametros no app console
+        /* 
+        System.out.println("===================");
+        System.out.println(args[0]);
+        System.out.println(args[1]);
+        System.out.println("===================");
+        */
+
+
+        // === ArrayList não tem limites para adicionar
+        /*List<String> cars = new ArrayList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        System.out.println(cars);*/
+
+
+        // === Array na sua criação é o obrigatório passar o tamanho
+        /*
+        System.out.println("Digite o nome1");
+        String nome1 = reader.readLine();
+
+        System.out.println("Digite o nome2");
+        String nome2 = reader.readLine();
+
+        String[] nomes = {nome1, nome2};
+        System.out.println(nomes[0]);
+        */
+
+        /*
+        faça um programa para armazenar valores (double) em uma array
+        no final do programa mostre o resultado da multiplicação dos valores
+        e o resultado da soma dos valores
+        */
+
+        // List<Double> numeros = new ArrayList<Double>();
+    	// Scanner ler = new Scanner(System.in);
+    		
+	    /*
+        System.out.println("Digite o nome 1");
+	    var numero1 = ler.nextDouble();
+	    numeros.add(numero1);
+	    
+	    System.out.println("Digite o número 2");
+	    var numero2 = ler.nextDouble();
+	    numeros.add(numero2);
+	    
+	    double somar = numeros.get(0) + numeros.get(1);
+	    double multiplicar = numeros.get(0) * numeros.get(1);
+
+		System.err.println("multiplicar: "+ multiplicar);
+		System.err.println("Somar: "+ somar);
+        */
+
+        /*
+        List<Double> lista = new ArrayList<>();
+        while(true){
+            System.out.println("Digite um número");
+            lista.add(ler.nextDouble());
+
+            System.out.println("Digite 0 para sair ou qualquer coisa para continuar");
+            var sair = reader.readLine();
+            if(sair.equals("0")) break;
+        }
+
+        double soma = 0.0;
+        double multiplicados = 1.0;
+
+        for (Double item : lista) {
+            soma += item;
+            multiplicados *= item;
+        }
+
+		System.err.println("multiplicar: " + multiplicados);
+		System.err.println("Somar: " + soma);
+        */
+
+
+        /*
+        Faça um exercicio para armazenar (array ou lista) o nome de 5 pessoas
+        e mostrar o resultado dos nomes formatados, ex:
+        Nome 1: "Teste"
+        Nome 2: "Leandro"
+        ...
+        */
+
+        // === Walter ===
+        /*
+        Scanner ler = new Scanner(System.in);
+    	List<String> nomes = new ArrayList<String>();
+    	for (int i = 1; i <= 5; i++) {
+    		System.out.println("Digite o nome "+i+": ");
+    		nomes.add(ler.next());
+		}
+
+    	System.out.println("#".repeat(10)+"[ Resultado ]"+"#".repeat(10)+"\n");
+    	for(String nome: nomes) {
+    		System.out.println("Nome: "+nome);
+    	}
+        */
+        
+        // === Elmadã ===
+        /*
+        ArrayList<String> nomes = new ArrayList<>();
+        Scanner reader2 = new Scanner(System.in);
+        
+        for(int i = 0; i < 5; i++){
+            System.out.println("Digite o nome");
+            nomes.add(reader2.nextLine());
+        }
+        for(int i = 0; i < 5; i++){
+            System.out.println("Nome " + (i+1) + " " + nomes.get(i));
+        }
+        */
+
+        // === Matriz com array ===
+        /*
+        String[][] alunos = new String[3][4];
+        String[] nomeNota = {"Danilo", "4"};
+        alunos[0] = nomeNota;
+
+        String[] nomeNota2 = {"Danilo", "6"};
+        alunos[1] = nomeNota2;
+
+        System.out.println("Nome " + alunos[0][0]);
+        System.out.println("Nota " + alunos[0][1]);
+        System.out.println("Nome " + alunos[1][0]);
+        System.out.println("Nota " + alunos[1][1]);
+        */
+
+        // === Matriz com List ===
+        List<List<String>> alunos = new ArrayList<>();
+        var aluno1 = new ArrayList<String>();
+        aluno1.add("Danilo");
+        aluno1.add("7");
+        alunos.add(aluno1);
+
+        var aluno2 = new ArrayList<String>();
+        aluno2.add("Fabio");
+        aluno2.add("7");
+
+        alunos.add(aluno2);
+
+        System.out.println("Nome " + alunos.get(0).get(0));
+        System.out.println("Nota " + alunos.get(0).get(1));
+        System.out.println("Nome " + alunos.get(1).get(0));
+        System.out.println("Nota " + alunos.get(1).get(1));
+
+        /*
+        Danilo é dono da escola de programação chamada
+        "Torne-se um programador"
+        O mesmo está precisando de um sistema para cadastrar os seus alunos
+        alem dos alunos, danilo quer cadastrar pelo menos 4 notas dos alunos.
+        Faça um programa que:
+        1 - armazene os nomes dos alunos
+        2 - as 4 notas para cada aluno
+        3 - mostre um relatório, da seguinte forma
+        
+        ---------------
+        Nome: NOME DO ALUNO
+        Notas: X,F,T
+        Média: XXX
+        Situação: (Aprovado || Recuperação || Reprovado)
+
+        Regra para situação: 
+        Se media >= 7 = Aprovado
+        Se media entre 5 e 6 = Recuperação
+        Se media < que 5 = Reprovado
+        */
+
 
         /* 
         Agora que você já sabe trabalhar com loop e já fez o primeiro programa da 
@@ -43,6 +219,7 @@ public class App {
 
 
         // ==== Luiz =====
+        /*
         System.out.println("*".repeat(60));
         System.out.println("*".repeat(18) + " TABUADA MULTIPLICAÇÃO  " + "*".repeat(18));
         System.out.println("*".repeat(60));
@@ -58,7 +235,7 @@ public class App {
         for (int i = 1; i <= calcularNumeroVezes; i++) {
             System.out.printf("%d x %d = %d%n", calcularNumeroN, i, (calcularNumeroN * i));
         }
-
+        */
 
         /* 
         Agora que você já sabe trabalhar com loop
@@ -852,5 +1029,83 @@ public class App {
          * // mostre() # mostra informação na tela
          * System.out.println( "O resultado da operação é " + soma );
          */
+
+
     }
+    
+    /*
+    private static JFrame frame;
+    private static JTextField textField_1;
+    private static JTextField textField_2;
+    
+    public static void exemploSwingFotm(){
+        frame = new JFrame();
+        frame.setBounds(100, 100, 730, 489);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setLayout(null);
+
+        JLabel lblPhone = new JLabel("Phone #");
+        lblPhone.setBounds(65, 68, 46, 14);
+        frame.getContentPane().add(lblPhone);
+         
+        textField_1 = new JTextField();
+        textField_1.setBounds(128, 65, 86, 20);
+        frame.getContentPane().add(textField_1);
+        textField_1.setColumns(10);
+         
+        JLabel lblEmailId = new JLabel("Email Id");
+        lblEmailId.setBounds(65, 115, 46, 14);
+        frame.getContentPane().add(lblEmailId);
+         
+        textField_2 = new JTextField();
+        textField_2.setBounds(128, 112, 247, 17);
+        frame.getContentPane().add(textField_2);
+        textField_2.setColumns(10);
+         
+        JLabel lblAddress = new JLabel("Address");
+        lblAddress.setBounds(65, 162, 46, 14);
+        frame.getContentPane().add(lblAddress);
+                 
+        JTextArea textArea_1 = new JTextArea();
+        textArea_1.setBounds(126, 157, 212, 40);
+        frame.getContentPane().add(textArea_1);
+         
+        JButton btnClear = new JButton("Clear");
+         
+        btnClear.setBounds(312, 387, 89, 23);
+        frame.getContentPane().add(btnClear);
+         
+        JLabel lblSex = new JLabel("Sex");
+        lblSex.setBounds(65, 228, 46, 14);
+        frame.getContentPane().add(lblSex);
+         
+        JLabel lblMale = new JLabel("Male");
+        lblMale.setBounds(128, 228, 46, 14);
+        frame.getContentPane().add(lblMale);
+         
+        JLabel lblFemale = new JLabel("Female");
+        lblFemale.setBounds(292, 228, 46, 14);
+        frame.getContentPane().add(lblFemale);
+         
+        JRadioButton radioButton = new JRadioButton("");
+        radioButton.setBounds(337, 224, 109, 23);
+        frame.getContentPane().add(radioButton);
+         
+        JRadioButton radioButton_1 = new JRadioButton("");
+        radioButton_1.setBounds(162, 224, 109, 23);
+        frame.getContentPane().add(radioButton_1);
+         
+        JLabel lblOccupation = new JLabel("Occupation");
+        lblOccupation.setBounds(65, 288, 67, 14);
+        frame.getContentPane().add(lblOccupation);
+         
+        JButton btnSubmit = new JButton("submit");
+         
+        btnSubmit.setBounds(65, 387, 89, 23);
+        frame.getContentPane().add(btnSubmit);
+
+        App window = new App();
+        window.frame.setVisible(true);
+    }
+    */
 }
