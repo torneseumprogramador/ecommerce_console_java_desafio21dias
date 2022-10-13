@@ -26,8 +26,9 @@ public class App {
     
     public static void main(String[] args) throws IOException {
 
-        exercicioAlunosEscolaOrientacaoAObjetos();
+        exercicioEcommerce();
 
+        // exercicioAlunosEscolaOrientacaoAObjetos();
         // exemploSwingForm();
         // passandoParametrosDoConsole(args);
         // arraySyntaxe();
@@ -56,6 +57,25 @@ public class App {
         // capturaCalculaNumero();
         // capturaNome();
         // soma();
+    }
+
+    private static void exercicioEcommerce() {
+        /*
+        Carla precisa de um ecommerce, este ecommerce vai ter as seguintes
+        funções:
+
+        - Cadastro de produtos
+        - Cadastro de clientes
+        - Cadastro de pedidos
+        - Relatório de pedidos de clientes
+        - Sair
+
+        Produto: (id, nome, descricao, preco)
+        Cliente: (id, nome, telefone, endereco)
+        Pedido: (id, cliente, produtos[], valorTotal())
+
+        ///// Pense na usabilidade /////
+        */
     }
 
     private static void passandoParametrosDoConsole(String[] parametros) {
