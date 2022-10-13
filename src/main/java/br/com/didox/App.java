@@ -25,7 +25,10 @@ public class App {
    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     
     public static void main(String[] args) throws IOException {
-        exemploSwingForm();
+
+        exercicioAlunosEscolaOrientacaoAObjetos();
+
+        // exemploSwingForm();
         // passandoParametrosDoConsole(args);
         // arraySyntaxe();
         // exercicioSomaArray();
@@ -209,6 +212,61 @@ public class App {
         System.out.println("Nota " + alunos.get(0).get(1));
         System.out.println("Nome " + alunos.get(1).get(0));
         System.out.println("Nota " + alunos.get(1).get(1));
+    }
+
+    private static void exercicioAlunosEscolaOrientacaoAObjetos() {
+        /*
+        Danilo é dono da escola de programação chamada
+        "Torne-se um programador"
+        O mesmo está precisando de um sistema para cadastrar os seus alunos
+        alem dos alunos, danilo quer cadastrar pelo menos 4 notas dos alunos.
+        Faça um programa que:
+        1 - armazene os nomes dos alunos
+        2 - as 4 notas para cada aluno
+        3 - mostre um relatório, da seguinte forma
+        
+        ---------------
+        Nome: NOME DO ALUNO
+        Notas: X,F,T
+        Média: XXX
+        Situação: (Aprovado || Recuperação || Reprovado)
+
+        Regra para situação: 
+        Se media >= 7 = Aprovado
+        Se media entre 5 e 6 = Recuperação
+        Se media < que 5 = Reprovado
+        */
+
+        Scanner ler = new Scanner(System.in);
+    	List<Aluno> alunos = new ArrayList<Aluno>();
+    	
+    	do {
+            Aluno aluno = new Aluno();
+
+            System.out.println("Digite o nome do aluno");
+            aluno.setNome(ler.next());
+
+            for(int i = 1; i <= 4; i++) {
+                System.out.println("Digite a nota "+i+": ");
+                aluno.getNotas().add(ler.nextDouble());
+            }
+            
+            alunos.add(aluno);
+            
+            System.out.println("Adicionar novo usuário: \nSim ou Não");
+            String opcao = ler.next();
+            if(opcao.toLowerCase().equals("não")) break;
+            
+    	}while(true);
+    	
+    	System.out.println("#".repeat(10)+"[ Relatório ]"+"#".repeat(10));
+    	for(Aluno aluno: alunos) {
+    		System.out.println("Nome: " + aluno.getNome() + "\n"
+    				+ "Notas: " + aluno.notasFormatada() + "\n"
+    				+ "Média: " + aluno.media() + "\n"
+    				+ "Situação: " + aluno.situacao() + "\n");
+    	}
+    	System.out.println("#".repeat(33)+"\n");
     }
 
     private static void exercicioAlunosEscola() {
