@@ -140,7 +140,7 @@ public class App {
                 Pedido pedido = new Pedido();
                 if(clientes.size()==0){
                     System.out.println("====Nenhum cliente cadastrado====\n Cadastre um cliente antes! Voce será redirecionado ao menu. ");
-                    menuInicial();
+                    menuInicialRenato();
                 break;
                 }
 
@@ -154,7 +154,7 @@ public class App {
                 pedido.setCliente(nomeCliente);
                 if(produtos.size()==0){
                     System.out.println("====Nenhum produto cadastrado====\n Cadastre um produto antes! Voce será redirecionado ao menu. ");
-                    menuInicial();
+                    menuInicialRenato();
                 break;
                 }
 
