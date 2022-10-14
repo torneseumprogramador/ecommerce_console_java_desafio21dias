@@ -1,68 +1,46 @@
 package br.com.didox;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
   private int id;
-  private Cliente cliente;
-  private List<Produto> produtos;
-  private double valorTotal;
-  
-  public int getId() {
-    return id;
-  }
+    private String cliente;
+    private List<String> produtos;
+    private double valorTotal;
 
- 
-  public void setId(int id) {
-    this.id = id;
-  }
- 
-  public Cliente getCliente() {
-    return cliente;
-  }
-  
-  public void setCliente(Cliente cliente) {
-    this.cliente = cliente;
-  }
-  
-  public List<Produto> getProdutos() {
-    if(this.produtos == null){
-      this.produtos = new ArrayList<Produto>();
+    public int getId() {
+        return id;
     }
-    return produtos;
-  }
- 
-  public void setProdutos(List<Produto> produtos) {
-    this.produtos = produtos;
-  }
-  
-  public double getValorTotal() {
-    for(Produto produto : this.getProdutos()){
-      this.setValorTotal(produto.getPreco());
+
+    public void setId(int id) {
+        this.id = id;
     }
-    return valorTotal;
-  }
-  
-  public void setValorTotal(double valorTotal) {
-    this.valorTotal += valorTotal;
-  }
 
-  public void imprimirPedido(){
-    DecimalFormat moedaBr = new DecimalFormat("#,###,###,##0.00");
-				System.out.println("\nCódigo: "+this.getId() + "\n"
-        +"Consumidor:" + this.getCliente().getNome() + "\n"
-				+ "Telefone: " + this.getCliente().getTelefone() + "\n"
-				+ "Endereço: " + this.getCliente().getEndereco() + "\n");
-				
-				System.out.println("-".repeat(40) + "\nITEM     NOME     DESCRICAO     VALOR\n" + "-".repeat(40));
-				for (Produto prod : this.getProdutos()) {
-					System.out.println(prod.getId() + " ".repeat(4) + prod.getNome() + " ".repeat(4)
-					+ prod.getDescricao() + " ".repeat(4) + prod.getPreco());
-				}
-				System.out.println("\nQtd. Total de Itens" + " ".repeat(18) + this.produtos.size() + "");
-				System.out.println("Valor Total (R$)" + " ".repeat(20) + moedaBr.format(getValorTotal()) + "\n");
-  }
+    public String getCliente() {
+        return cliente;
+    }
 
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal += valorTotal;
+    }
+
+    public List<String> getProdutos() {
+        if(this.produtos==null){
+            this.produtos= new ArrayList<String>();
+        }
+        return produtos;
+    }
+
+    public void setProdutos(List<String> produtos) {
+        this.produtos = produtos;
+    }
 }

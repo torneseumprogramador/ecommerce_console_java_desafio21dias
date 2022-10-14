@@ -1,16 +1,16 @@
 package br.com.didox;
 
 public class Cliente {
-  private String id;
+  private int id;
   private String nome;
   private String telefone;
   private String endereco;
  
-  public String getId() {
+  public int getId() {
     return id;
   }
  
-  public void setId(String id) {
+  public void setId(int id) {
     this.id = id;
   }
  

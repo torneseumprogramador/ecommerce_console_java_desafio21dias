@@ -23,10 +23,16 @@ import javax.swing.JTextField;
 
 public class App {
    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    
-    public static void main(String[] args) throws IOException {
+   
+   static List<Cliente> clientes = new ArrayList<Cliente>();
+   static List<Produto> produtos = new ArrayList<Produto>();
 
-        exercicioEcommerce();
+    public static void main(String[] args) throws IOException {
+        System.out.println("========== SEJA BEM VINDO!========");
+
+        menuInicial();
+
+        // exercicioEcommerce();
 
         // exercicioAlunosEscolaOrientacaoAObjetos();
         // exemploSwingForm();
@@ -59,6 +65,126 @@ public class App {
         // soma();
     }
 
+    private static void menuInicial() throws NumberFormatException, IOException {
+        int opcao = 0;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        do {
+           
+            System.out.println(
+                    "Escolha as opções: \n (1) Cadastrar Produto \n (2) Cadastrar Cliente \n (3) Cadastrar Pedido \n (0) Sair");
+            opcao = Integer.parseInt(reader.readLine());
+
+        } while ( opcao > 3);
+        cadastrar(opcao);
+
+    }
+
+    private static void cadastrar(int opcao) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        switch (opcao) {
+            case 1:
+                System.out.println("========== CADASTRAR PRODUTO ========");
+                do {
+                    Produto produto = new Produto();
+                    System.out.println("Insira o nome do produto:");
+                    produto.setNome(reader.readLine());
+                    System.out.println("Insira a descrição do produto:");
+                    produto.setDescricao(reader.readLine());
+                    System.out.println("Insira o Valor do produto:");
+                    produto.setPreco(Double.parseDouble(reader.readLine()));
+                    produto.setId(produtos.size() + 1);
+                    produtos.add(produto);
+                    System.out.println("Deseja adicionar outro produto?: \n (1) Sim \n (2) Retornar Menu");
+                    int escolha = Integer.parseInt(reader.readLine());
+                    if (escolha == 2)
+                        break;
+
+                } while (true);
+                menuInicial();
+                break;
+
+            case 2:
+                System.out.println("========== CADASTRAR CLIENTE ========");
+                do {
+                    Cliente cliente = new Cliente();
+                    System.out.println("Insira o nome do cliente:");
+                    cliente.setNome(reader.readLine());
+                    System.out.println("Insira o telefone do cliente:");
+                    cliente.setTelefone(reader.readLine());
+                    System.out.println("Insira endereço do cliente:");
+                    cliente.setEndereco(reader.readLine());
+                    cliente.setId(clientes.size() + 1);
+                    clientes.add(cliente);
+                    System.out.println("Deseja adicionar outro cliente?: \n (1) Sim \n (2) Voltar ao menu");
+                    int escolha = Integer.parseInt(reader.readLine());
+                    if (escolha == 2)
+                        break;
+
+                } while (true);
+
+                menuInicial();
+                break;
+
+            case 3:
+                System.out.println("========== CADASTRAR PEDIDOS ========");
+                // do {
+                Pedido pedido = new Pedido();
+                if(clientes.size()==0){
+                    System.out.println("====Nenhum cliente cadastrado====\n Cadastre um cliente antes! Voce será redirecionado ao menu. ");
+                    menuInicial();
+                break;
+                }
+
+               
+                System.out.println("Selecione o cliente pelo seu índice: ");
+                for (int i = 0; i < clientes.size(); i++) {
+                    System.out.println("(" + i + "): " + clientes.get(i).getNome());
+                }
+                int indiceCliente = Integer.parseInt(reader.readLine());
+                String nomeCliente = clientes.get(indiceCliente).getNome();
+                pedido.setCliente(nomeCliente);
+                if(produtos.size()==0){
+                    System.out.println("====Nenhum produto cadastrado====\n Cadastre um produto antes! Voce será redirecionado ao menu. ");
+                    menuInicial();
+                break;
+                }
+
+                do {
+                    System.out.println("Selecione o produto pelo seu índice: ");
+                    for (int i = 0; i < produtos.size(); i++) {
+
+                        System.out.println("(" + i + ")=> " + "Produto:" + produtos.get(i).getNome() + " === Valor: "
+                                + produtos.get(i).getPreco());
+
+                    }
+                    int indiceProduto = Integer.parseInt(reader.readLine());
+                    String produtoSelecionado = produtos.get(indiceProduto).getNome();
+                    double valorProdutoSelecionado = produtos.get(indiceProduto).getPreco();
+
+                    pedido.getProdutos().add(produtoSelecionado);
+                    pedido.setValorTotal(valorProdutoSelecionado);
+
+                    System.out.println("Deseja adicionar outro produto? \n (1) Sim \n (2) Não ");
+                    int escolha = Integer.parseInt(reader.readLine());
+                    if (escolha == 2) {
+
+                        System.out.println(" ====== RELATÓRIO PEDIDO =======");
+                        System.out.println("Número pedido: 1\nNome Cliente: " + pedido.getCliente() + "\nProdutos:"+ pedido.getProdutos() + "\nTotal do Pedido: R$ " + pedido.getValorTotal());
+                        break;
+
+                    }
+
+                } while (true);
+                
+
+            default:
+                System.out.println("======= SESSÃO ENCERRADA =====");
+                break;
+        }
+
+    }
+
     private static void exercicioEcommerce() {
         /*
         Carla precisa de um ecommerce, este ecommerce vai ter as seguintes
@@ -76,15 +202,21 @@ public class App {
 
         ///// Pense na usabilidade /////
         */
+        // === Renato ===
 
+
+
+
+        // === Walter ====
+        /*
         List<Pedido> pedidos = new ArrayList<>();
 		Scanner ler = new Scanner(System.in);
 		System.out.println("\n"+"-".repeat(10)+"[ Pedidos - Online ]"+"-".repeat(10));
 
 		do {
 
-			Pedido novo = new Pedido();
-			novo.setId(pedidos.size()+1);
+			Pedido pedido = new Pedido();
+			pedido.setId(pedidos.size()+1);
 
 			Cliente cliente = new Cliente();
 			System.out.println("Digite o nome do Cliente:");
@@ -96,29 +228,29 @@ public class App {
 			System.out.println("Digite o endereço:");
 			cliente.setEndereco(ler.next());
 
-			novo.setCliente(cliente);
+			pedido.setCliente(cliente);
 			System.out.println("\n"+"-".repeat(10) + "[ Produto ]" + "-".repeat(10));
 
-				do {
+            do {
 
-					Produto produto = new Produto();
-					produto.setId(novo.getProdutos().size() + 1);
-					System.out.println("Digite o nome do produto:");
-					produto.setNome(ler.next());
-					System.out.println("Digite a descrição:");
-					produto.setDescricao(ler.next());
-					System.out.println("Digite o preço:");
-					produto.setPreco(ler.nextDouble());
+                Produto produto = new Produto();
+                produto.setId(pedido.getProdutos().size() + 1);
+                System.out.println("Digite o nome do produto:");
+                produto.setNome(ler.next());
+                System.out.println("Digite a descrição:");
+                produto.setDescricao(ler.next());
+                System.out.println("Digite o preço:");
+                produto.setPreco(ler.nextDouble());
 
-					novo.getProdutos().add(produto);
-					System.out.println("\n"+"-".repeat(10)+"[ Pedidos ]"+"-".repeat(10));
-					System.out.println("Adicionar outro produto?\n0 - para continuar\n1 - para fechar o carrinho");
-					int opcao = ler.nextInt();
-					if(opcao == 1)
-						break;
-				} while (true);
+                pedido.getProdutos().add(produto);
+                System.out.println("\n"+"-".repeat(10)+"[ Pedidos ]"+"-".repeat(10));
+                System.out.println("Adicionar outro produto?\n0 - para continuar\n1 - para fechar o carrinho");
+                int opcao = ler.nextInt();
+                if(opcao == 1)
+                    break;
+            } while (true);
 				
-			pedidos.add(novo);
+			pedidos.add(pedido);
 			System.out.println("\n"+"-".repeat(10)+"[ Pedidos ]"+"-".repeat(10));
 			System.out.println("Adicionar outro pedido?\n0 - para continuar)\n1 - para sair");
 			int opcao = ler.nextInt();
@@ -134,6 +266,7 @@ public class App {
 			pedido.imprimirPedido();
 		}
 		System.out.println("-".repeat(10)+"[ fim ]"+"-".repeat(10));
+        */
     }
 
     private static void passandoParametrosDoConsole(String[] parametros) {
