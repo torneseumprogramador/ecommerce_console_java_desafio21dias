@@ -28,10 +28,10 @@ public class App {
    static List<Produto> produtos = new ArrayList<Produto>();
 
     public static void main(String[] args) throws IOException {
-        menuInicialRenato();
-
+        funcaoRecursiva();
+        
+        // menuInicialRenato();
         // exercicioEcommerce();
-
         // exercicioAlunosEscolaOrientacaoAObjetos();
         // exemploSwingForm();
         // passandoParametrosDoConsole(args);
@@ -61,6 +61,14 @@ public class App {
         // capturaCalculaNumero();
         // capturaNome();
         // soma();
+    }
+
+    private static void funcaoRecursiva() {
+        menuInicialRecursivo();
+    }
+
+    private static void menuInicialRecursivo() {
+        System.out.println("=".repeat(10) + "[ SEJA BEM VINDO ]" + "=".repeat(10));
     }
 
     private static void menuInicialRenato() throws NumberFormatException, IOException {
@@ -101,7 +109,7 @@ public class App {
                         break;
 
                 } while (true);
-                menuInicial();
+                menuInicialRenato();
                 break;
 
             case 2:
@@ -123,7 +131,7 @@ public class App {
 
                 } while (true);
 
-                menuInicial();
+                menuInicialRenato();
                 break;
 
             case 3:
