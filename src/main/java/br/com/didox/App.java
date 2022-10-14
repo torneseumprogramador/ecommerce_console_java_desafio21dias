@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +28,7 @@ public class App {
    static List<Cliente> clientes = new ArrayList<Cliente>();
    static List<Produto> produtos = new ArrayList<Produto>();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NumberFormatException, InterruptedException {
         funcaoRecursiva();
         
         // menuInicialRenato();
@@ -63,12 +64,38 @@ public class App {
         // soma();
     }
 
-    private static void funcaoRecursiva() {
+    private static void funcaoRecursiva() throws NumberFormatException, IOException, InterruptedException {
         menuInicialRecursivo();
     }
 
-    private static void menuInicialRecursivo() {
+    private static void menuInicialRecursivo() throws NumberFormatException, IOException, InterruptedException {
+        clearScreen();
+
         System.out.println("=".repeat(10) + "[ SEJA BEM VINDO ]" + "=".repeat(10));
+        System.out.println("Digite uma das opções abaixo:");
+        System.out.println("1 - Cadastrar produto");
+        System.out.println("2 - Cadastrar cliente");
+        System.out.println("3 - Cadastrar cliente");
+        System.out.println("4 - Sair");
+
+        int opcao = Integer.parseInt(reader.readLine());
+
+        if(opcao == 4) return;
+
+        esperaComMensagem(5, "Você selecionou a opção: " + opcao);
+
+        menuInicialRecursivo();
+    }
+
+    public static void clearScreen() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }
+
+    public static void esperaComMensagem(int segundos, String mensagem) throws InterruptedException {  
+        clearScreen();
+        System.out.println(mensagem);
+        TimeUnit.SECONDS.sleep(segundos);
     }
 
     private static void menuInicialRenato() throws NumberFormatException, IOException {
