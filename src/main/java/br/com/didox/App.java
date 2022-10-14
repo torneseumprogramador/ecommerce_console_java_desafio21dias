@@ -28,9 +28,7 @@ public class App {
    static List<Produto> produtos = new ArrayList<Produto>();
 
     public static void main(String[] args) throws IOException {
-        System.out.println("========== SEJA BEM VINDO!========");
-
-        menuInicial();
+        menuInicialRenato();
 
         // exercicioEcommerce();
 
@@ -65,7 +63,9 @@ public class App {
         // soma();
     }
 
-    private static void menuInicial() throws NumberFormatException, IOException {
+    private static void menuInicialRenato() throws NumberFormatException, IOException {
+        System.out.println("========== SEJA BEM VINDO!========");
+        
         int opcao = 0;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         do {
