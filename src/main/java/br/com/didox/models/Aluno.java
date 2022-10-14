@@ -1,19 +1,10 @@
-package br.com.didox;
+package br.com.didox.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno {
-    private String nome;
+public class Aluno extends Pessoa {
     private List<Double> notas;
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public List<Double> getNotas() {
         if(this.notas == null){
@@ -50,5 +41,18 @@ public class Aluno {
         }
 
         return notasSeparadasPorVirgula.substring(0, notasSeparadasPorVirgula.length() - 1);
+    }
+
+    public String notasFormatada(String mensagem){
+        String notasSeparadasPorVirgula = "";
+        for (Double nota : this.getNotas()) {
+            notasSeparadasPorVirgula += nota + ", ";
+        }
+
+        return mensagem + ": " + notasSeparadasPorVirgula.substring(0, notasSeparadasPorVirgula.length() - 2);
+    }
+
+    public String nomeCompleto(){
+        return this.nome + " - " + this.sobrenome;
     }
 }

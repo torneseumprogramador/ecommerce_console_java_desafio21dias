@@ -22,6 +22,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import br.com.didox.models.Aluno;
+
 public class App {
    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
    
@@ -29,8 +31,10 @@ public class App {
    static List<Produto> produtos = new ArrayList<Produto>();
 
     public static void main(String[] args) throws IOException, NumberFormatException, InterruptedException {
-        funcaoRecursiva();
         
+        testandoAgregacaoDeMetodos();
+        
+        // funcaoRecursiva();
         // menuInicialRenato();
         // exercicioEcommerce();
         // exercicioAlunosEscolaOrientacaoAObjetos();
@@ -62,6 +66,25 @@ public class App {
         // capturaCalculaNumero();
         // capturaNome();
         // soma();
+    }
+
+    private static void testandoAgregacaoDeMetodos() {
+        var aluno = new Aluno();
+        aluno.setId(1);
+        aluno.setNome("Danilo");
+        aluno.setSobrenome("Santos");
+        aluno.getNotas().add(4.0);
+        aluno.getNotas().add(9.0);
+
+        clearScreen();
+        var notasFormatada = aluno.notasFormatada("As notas são");
+        mostrar(notasFormatada);
+
+        mostrar("Nome completo: " + aluno.nomeCompleto());
+    }
+
+    private static void mostrar(String mensagem) {
+        System.out.println(mensagem);
     }
 
     private static void funcaoRecursiva() throws NumberFormatException, IOException, InterruptedException {
