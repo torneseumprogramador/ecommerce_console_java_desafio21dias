@@ -22,7 +22,15 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import br.com.didox.drivers.Csv;
+import br.com.didox.drivers.Json;
+import br.com.didox.drivers.Txt;
+import br.com.didox.drivers.Xlsx;
+import br.com.didox.drivers.Xml;
+import br.com.didox.enums.Tipo;
 import br.com.didox.models.Aluno;
+import br.com.didox.models.Cliente;
+import br.com.didox.models.Fornecedor;
 
 public class App {
    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -31,9 +39,9 @@ public class App {
    static List<Produto> produtos = new ArrayList<Produto>();
 
     public static void main(String[] args) throws IOException, NumberFormatException, InterruptedException {
+        orientacaoAObijetos();
         
-        testandoAgregacaoDeMetodos();
-        
+        // testandoAgregacaoDeMetodos();
         // funcaoRecursiva();
         // menuInicialRenato();
         // exercicioEcommerce();
@@ -66,6 +74,38 @@ public class App {
         // capturaCalculaNumero();
         // capturaNome();
         // soma();
+    }
+
+    private static void orientacaoAObijetos() {
+        var cliente = new Cliente();
+        cliente.setId(1);
+        cliente.setNome("Leandro");
+        
+        var aluno = new Aluno();
+        aluno.setId(1);
+        aluno.setNome("Macio");
+
+        var fornecedor = new Fornecedor();
+        fornecedor.setId(1);
+        fornecedor.setNome("Placar");
+
+        cliente.SalvarSemStratagy(Tipo.CSV);
+        cliente.SalvarSemStratagy(Tipo.XML);
+        cliente.SalvarSemStratagy(Tipo.JSON);
+
+        cliente.Salvar(new Xlsx());
+        cliente.Salvar(new Xml());
+        cliente.Salvar(new Json());
+        cliente.Salvar(new Csv());
+        cliente.Salvar(new Txt());
+
+        // var apresentarAluno = PessoaServico.Apresentar(aluno);
+        // var apresentarCliente = PessoaServico.Apresentar(cliente);
+        // var apresentarFornecedor = PessoaServico.Apresentar(fornecedor);
+
+        // mostrar(apresentarAluno);
+        // mostrar(apresentarCliente);
+        // mostrar(apresentarFornecedor);
     }
 
     private static void testandoAgregacaoDeMetodos() {

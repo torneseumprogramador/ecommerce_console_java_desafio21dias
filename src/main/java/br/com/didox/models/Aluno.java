@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Pessoa {
+
     private List<Double> notas;
 
     public List<Double> getNotas() {
